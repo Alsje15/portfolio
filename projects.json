@@ -1,0 +1,63 @@
+[
+  {
+    "title": "DeBiasMe",
+     "details": false,
+    "color": "#5d7a9c",
+    "status": "Pilot phase, Pre-launch",
+    "date": "2026",
+    "description": "DeBiasMe reveals human, computational, statistical and systemic through interactive tools and workshops that map how different types of bias influence your learning process. By recognizing and mitigating these biases, we can use AI more effectively while maintaining critical thinking skills that education aims to develop.",
+    "cover": "/assets/debiasme.png",
+    "link": "https://cheerful-panda-695958.framer.app/",
+    "context": "Passion Project, Volunteer",
+    "skills": ["web", "research", "product design", "branding", "development"],
+    "application": [
+      "coming soon"
+    ]
+  },
+  {
+    "title": "Lorel",
+    "details": false,
+    "color": "#943e2f",
+    "status": "Withdrawn/Offline",
+    "date": "2025",
+    "description": "Think Behance for artists, then meets Vinted. Lorel is a multi-platform app made for artists and art lovers. It allows artists to showcase and sell their work, inspire, and be inspired, as they build a portfolio.",
+    "cover": "/assets/lorel.png",
+    "link": "https://github.com/lorel-app",
+    "context": "University project",
+    "skills": ["frontend", "mobile", "web", "SQL"],
+    "application": [
+      "React Native",
+      "PostgreSQL",
+      "Terraform",
+      "Kubernetes",
+      "DevOps",
+      "CloudOps"
+    ]
+  },
+  {
+    "title": "Thirst Alert",
+     "details": false,
+    "color": "#407052",
+    "status": "Withdrawn/Offline",
+    "date": "2024",
+    "description": "Thirst Alert consists of a mobile app and a hardware component that alerts users when they need to water their plants. The app allows users to monitor their plants' moisture levels and receive notifications when it's time to water them. The hardware component is a moisture sensor that can be placed in the soil of the plant, which sends data to a server that the app can access.",
+    "cover": "/assets/ta.png",
+    "link": "https://github.com/thirst-alert",
+    "context": "University project",
+    "skills": ["frontend", "mobile", "data visualisation", "NOSQL", "IoT"],
+    "application": ["Flutter", "MongoDB", "ESP32", "BLE"]
+  },
+  {
+    "title": "Chimera",
+    "details": true,
+    "color": "#5d7a9c",
+    "status": "Completed",
+    "date": "2023",
+    "description": "Chimera is an interactive art installation that fuses physical and digital elements to create an immersive and unique experience. It features a large stretchy canvas that is used as a projection surface. A depth camera tracks depressions in the canvas as a user interacts, which is translated into generative visual effects, projected back onto it.",
+    "cover": "/assets/chimera.png",
+    "link": "https://github.com/chimera-kinect",
+    "context": "University project",
+    "skills": ["creative coding", "computer vision"],
+    "application": ["Python", "Javascript", "P5.js", "OpenCV", "Kinect"]
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "title": "Validar",
+    "details": false,
+    "color": "#1CAD6E",
+    "description": "Validar specializes in validation and certification against specific standards tailored to the rigors of the mining industry.",
+    "cover": "/assets/validar.png",
+    "link": "https://validar.co.za",
+    "context": "ROAM",
+    "date": "2026",
+    "skills": ["digital design", "web", "branding", "graphic design", "copywriting"],
+    "application": ["wordpress", "elementor"]
+  },
+      {
+    "title": "For A New Earth",
+     "details": false,
+    "color": "#00281A",
+    "description": "FANE is a Newfoundland and Labrador based non-profit organization that mobilizes philosophy, science, and art to awaken care for our common home.",
+    "cover": "/assets/fane.png",
+    "link": "https://foranewearth.org",
+    "context": "ROAM",
+    "date": "ongoing",
+    "skills": ["digital design", "web", "branding", "graphic/print design"],
+    "application": ["wordpress", "elementor"]
+  },
+      {
+    "title": "Quasar Dashboard",
+    "details": false,
+    "color": "#9CE04D",
+    "description": "A modern admin template built with Quasar Framework for client's reuse.",
+    "cover": "/assets/quasar.png",
+    "link": "https://github.com/thecodenn/admin_template",
+    "context": "ROAM",
+    "date": "2025",
+    "skills": ["frontend", "UI design"],
+    "application": ["Vue.js", "Quasar"]
+  },
+  {
+    "title": "Fair & Forged",
+    "details": false,
+    "color": "#1C352D",
+    "description": "Fair & Forged creates timeless leather goods and clothing that blend traditional techniques with modern design. Every piece is unique and handcrafted from ethically sourced materials, celebrating individuality, functionality, and artistry in a world crowded with mass production.",
+    "cover": "/assets/fairandforged.png",
+    "link": "https://fairandforged.co.za",
+    "context": "ROAM",
+    "date": "2025",
+    "skills": ["digital design", "web", "branding","consultancy"],
+    "application": ["wordpress", "elementor"]
+  },
+      {
+    "title": "Fibwi Technologies",
+    "details": false,
+    "color": "#E6FF2A",
+    "description": "A leading innovator in high-quality cable & harness manufacturing solutions, utilizing advanced equipment and reliable supplier partnerships.",
+    "cover": "/assets/fibwi.png",
+    "link": "https://fibwitech.co.za",
+    "context": "ROAM",
+    "date": "2025",
+    "skills": ["web", "digital design", "graphic design"],
+    "application": ["wordpress"]
+  },
+    {
+    "title": "Shelby's Portfolio",
+    "details": false,
+    "color": "#F79862",
+    "description": "Shelby is a storyteller; a voice actress, author and actor.",
+    "cover": "/assets/shelby.png",
+    "link": "https://shelbystorme.com/",
+    "context": "ROAM",
+    "date": "2025",
+    "skills": ["digital design", "web", "branding"],
+    "application": ["wordpress", "elementor"]
+  },
+      {
+    "title": "Promisia",
+    "details": false,
+    "color": "#83F2B1",
+    "description": "A  New Zealand-based provider of residential aged care and retirement village living, dedicated to delivering high-quality care and support.",
+    "cover": "/assets/promisia.png",
+    "link": "https://promisia.co.nz/",
+    "context": "ROAM",
+    "date": "2024",
+    "skills": ["digital design", "web"],
+    "application": ["squarespace"]
+  }
+]
