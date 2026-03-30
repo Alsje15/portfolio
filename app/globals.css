@@ -445,6 +445,7 @@ footer ul {
 .carousel {
   position: relative;
   width: 100%;
+  --carousel-card-width: clamp(260px, 72%, 390px);
 }
 
 .carousel-controls {
@@ -456,25 +457,19 @@ footer ul {
 }
 
 .carousel-track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: clamp(260px, 72%, 390px);
+  display: flex;
   gap: 0.85rem;
   overflow-x: auto;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  padding: 0.3rem 0.2rem 3rem;
+  padding: 0.3rem 0 3rem;
   width: 100%;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-.project-card:first-child {
-  margin-left: 1rem;
-}
-
-.project-card:last-child {
-  margin-right: 1rem;
+.carousel-edge-spacer {
+  flex: 0 0 max(0px, calc((100% - var(--carousel-card-width)) / 2));
 }
 
 .carousel-track::-webkit-scrollbar {
@@ -482,6 +477,7 @@ footer ul {
 }
 
 .project-card {
+  flex: 0 0 var(--carousel-card-width);
   scroll-snap-align: center;
   overflow: hidden;
   min-height: 300px;
@@ -742,20 +738,12 @@ footer ul {
 }
 
 @media (max-width: 760px) {
-  .carousel-track {
-    grid-auto-columns: 86%;
+  .carousel {
+    --carousel-card-width: 86%;
   }
 
   .carousel-btn {
     display: none;
-  }
-
-  .project-card:first-child {
-    margin-left: 0;
-  }
-
-  .project-card:last-child {
-    margin-right: 0;
   }
 }
 

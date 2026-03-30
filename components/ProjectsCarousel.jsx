@@ -59,7 +59,6 @@ function formatLinkLabel(url) {
 
 export default function ProjectsCarousel({ projects, coverAspectRatio = "3 / 2" }) {
   const trackRef = useRef(null);
-  const adjustingRef = useRef(false);
 
   const cards = useMemo(() => {
     return projects.map((project, index) => {
@@ -91,28 +90,19 @@ export default function ProjectsCarousel({ projects, coverAspectRatio = "3 / 2" 
     });
   }, [projects]);
 
-  const loopedCards = useMemo(() => {
-    if (cards.length <= 1) {
-      return cards.map((card, baseIndex) => ({
+  const displayCards = useMemo(
+    () =>
+      cards.map((card, index) => ({
         ...card,
-        baseIndex,
+        baseIndex: index,
         copyIndex: 0,
-      }));
-    }
-
-    return [0, 1, 2].flatMap((copyIndex) =>
-      cards.map((card, baseIndex) => ({
-        ...card,
-        id: `${card.id}-c${copyIndex}`,
-        baseIndex,
-        copyIndex,
       })),
-    );
-  }, [cards]);
+    [cards],
+  );
 
   useEffect(() => {
     const track = trackRef.current;
-    if (!track || loopedCards.length === 0) {
+    if (!track || displayCards.length === 0) {
       return undefined;
     }
 
@@ -126,27 +116,15 @@ export default function ProjectsCarousel({ projects, coverAspectRatio = "3 / 2" 
       }
     };
 
-    if (cards.length > 1) {
-      const firstMiddle = track.querySelector(
-        '[data-copy="1"][data-base="0"]',
-      );
-      if (firstMiddle) {
-        track.scrollTo({ left: firstMiddle.offsetLeft, behavior: "auto" });
-        setActiveElement(firstMiddle, Array.from(track.children));
-      }
-    } else {
-      setActiveElement(track.children[0], Array.from(track.children));
-    }
-
     const handleScroll = () => {
-      if (adjustingRef.current) {
-        return;
-      }
-
       const center = track.scrollLeft + track.clientWidth / 2;
       let nearestIndex = 0;
       let nearestDistance = Number.POSITIVE_INFINITY;
-      const children = Array.from(track.children);
+      const children = Array.from(track.querySelectorAll(".project-card"));
+
+      if (children.length === 0) {
+        return;
+      }
 
       children.forEach((child, index) => {
         const cardCenter = child.offsetLeft + child.clientWidth / 2;
@@ -158,30 +136,7 @@ export default function ProjectsCarousel({ projects, coverAspectRatio = "3 / 2" 
       });
 
       const nearestEl = children[nearestIndex];
-      const base = Number.parseInt(nearestEl?.dataset.base || "0", 10);
-      const copy = Number.parseInt(nearestEl?.dataset.copy || "0", 10);
       setActiveElement(nearestEl, children);
-
-      if (cards.length <= 1) {
-        return;
-      }
-
-      if (copy === 0 || copy === 2) {
-        const middleMatch = track.querySelector(
-          `[data-copy="1"][data-base="${base}"]`,
-        );
-        if (!middleMatch) {
-          return;
-        }
-
-        adjustingRef.current = true;
-        const delta = middleMatch.offsetLeft - nearestEl.offsetLeft;
-        track.scrollTo({ left: track.scrollLeft + delta, behavior: "auto" });
-        setActiveElement(middleMatch, children);
-        requestAnimationFrame(() => {
-          adjustingRef.current = false;
-        });
-      }
     };
 
     track.addEventListener("scroll", handleScroll, { passive: true });
@@ -192,16 +147,18 @@ export default function ProjectsCarousel({ projects, coverAspectRatio = "3 / 2" 
       track.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleScroll);
     };
-  }, [cards.length, loopedCards.length]);
+  }, [displayCards.length]);
 
   const scrollOne = (direction) => {
     const track = trackRef.current;
-    if (!track || !track.children[0]) {
+    const firstCard = track?.querySelector(".project-card");
+
+    if (!track || !firstCard) {
       return;
     }
 
     const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 16;
-    const step = track.children[0].getBoundingClientRect().width + gap;
+    const step = firstCard.getBoundingClientRect().width + gap;
     track.scrollBy({ left: step * direction, behavior: "smooth" });
   };
 
@@ -232,7 +189,8 @@ export default function ProjectsCarousel({ projects, coverAspectRatio = "3 / 2" 
       </div>
 
       <div className="carousel-track" id="project-track" ref={trackRef}>
-        {loopedCards.map((card) => (
+        <div className="carousel-edge-spacer" aria-hidden="true" />
+        {displayCards.map((card) => (
           <article
             className="project-card"
             key={card.id}
@@ -325,6 +283,7 @@ export default function ProjectsCarousel({ projects, coverAspectRatio = "3 / 2" 
             </div>
           </article>
         ))}
+        <div className="carousel-edge-spacer" aria-hidden="true" />
       </div>
     </div>
   );
