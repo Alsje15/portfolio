@@ -75,6 +75,7 @@ a {
   border-radius: 999px;
   border: 1px solid rgba(75, 143, 242, 0.35);
   background: color-mix(in oklab, var(--panel) 76%, white 24%);
+  appearance: none;
   font-family: "Sora", "Manrope", sans-serif;
   font-size: 0.84rem;
   font-weight: 700;
@@ -82,11 +83,65 @@ a {
   text-transform: uppercase;
   color: #275faf;
   text-decoration: none;
+  cursor: pointer;
   box-shadow: 0 6px 14px rgba(19, 43, 76, 0.08);
   transition:
     transform 0.2s ease,
     background-color 0.2s ease,
     box-shadow 0.2s ease;
+}
+
+.nav-toggle {
+  position: relative;
+  min-width: 5.9rem;
+  padding: 0.33rem;
+  background: color-mix(in oklab, var(--panel) 70%, white 30%);
+  border-color: rgba(75, 143, 242, 0.28);
+}
+
+.nav-toggle:hover {
+  background: color-mix(in oklab, var(--panel) 64%, white 36%);
+}
+
+.nav-toggle-track {
+  position: relative;
+  width: 100%;
+  min-height: 1.95rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  padding: 0 0.2rem;
+}
+
+.nav-toggle-label {
+  position: relative;
+  z-index: 1;
+  font-size: 0.77rem;
+  letter-spacing: 0.08em;
+  text-align: center;
+  color: rgba(39, 95, 175, 0.55);
+  transition: color 0.2s ease;
+}
+
+.nav-toggle[data-language="en"] .nav-toggle-label-left,
+.nav-toggle[data-language="de"] .nav-toggle-label-right {
+  color: #ffffff;
+}
+
+.nav-toggle-thumb {
+  position: absolute;
+  top: 0.12rem;
+  left: 0.12rem;
+  width: calc(50% - 0.12rem);
+  height: calc(100% - 0.24rem);
+  border-radius: 999px;
+  background: linear-gradient(180deg, #4b8ff2 0%, #2d6ccb 100%);
+  box-shadow: 0 6px 14px rgba(19, 43, 76, 0.16);
+  transition: transform 0.22s ease;
+}
+
+.nav-toggle[data-language="de"] .nav-toggle-thumb {
+  transform: translateX(100%);
 }
 
 .nav-btn:hover {
@@ -450,6 +505,8 @@ footer {
 footer ul {
   list-style: none;
   line-height: 250%;
+  padding: 0;
+  margin: 0;
 }
 
 .contact {
