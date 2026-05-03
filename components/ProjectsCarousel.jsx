@@ -57,22 +57,41 @@ function formatLinkLabel(url) {
   return (url || "").replace(/^https?:\/\//i, "");
 }
 
-export default function ProjectsCarousel({ projects, coverAspectRatio = "3 / 2" }) {
+export default function ProjectsCarousel({
+  projects,
+  coverAspectRatio = "3 / 2",
+  labels = {},
+  language = "en",
+}) {
+  const carouselLabels = {
+    ariaLabel: "Project carousel",
+    previous: "Previous project",
+    next: "Next project",
+    skills: "Skills",
+    application: "Application",
+    tagGroups: "Project skills and application",
+    defaultContext: "Independent project",
+    defaultDescription: "Project work",
+    ...labels,
+  };
+
   const trackRef = useRef(null);
 
   const cards = useMemo(() => {
     return projects.map((project, index) => {
       const imageSrc = getProjectImage(project);
+      const descriptionValue =
+        language === "de" ? project.descriptionDe || project.description : project.description;
       const description =
-        project.description?.trim() ||
-        `Project work (${project.date || "n.d."})`;
+        descriptionValue?.trim() ||
+        `${carouselLabels.defaultDescription} (${project.date || "n.d."})`;
 
       return {
         id: `${project.title || "project"}-${index}`,
         title: project.title || "Untitled Project",
         slug: slugify(project.title || `project-${index}`),
         hasDetails: project.details === true,
-        context: project.context || "Independent project",
+        context: project.context || carouselLabels.defaultContext,
         date: project.date || "n.d.",
         status:
           typeof project.status === "string" && project.status.trim().length > 0
@@ -88,7 +107,7 @@ export default function ProjectsCarousel({ projects, coverAspectRatio = "3 / 2" 
         link: project.link,
       };
     });
-  }, [projects]);
+  }, [projects, language]);
 
   const displayCards = useMemo(
     () =>
@@ -165,13 +184,13 @@ export default function ProjectsCarousel({ projects, coverAspectRatio = "3 / 2" 
   return (
     <div
       className="carousel"
-      aria-label="Project carousel"
+      aria-label={carouselLabels.ariaLabel}
       style={{ "--cover-aspect-ratio": coverAspectRatio }}
     >
       <div className="carousel-controls" aria-label="Carousel controls">
         <button
           className="carousel-btn prev"
-          aria-label="Previous project"
+          aria-label={carouselLabels.previous}
           onClick={() => scrollOne(-1)}
           type="button"
         >
@@ -180,7 +199,7 @@ export default function ProjectsCarousel({ projects, coverAspectRatio = "3 / 2" 
 
         <button
           className="carousel-btn next"
-          aria-label="Next project"
+          aria-label={carouselLabels.next}
           onClick={() => scrollOne(1)}
           type="button"
         >
@@ -221,10 +240,10 @@ export default function ProjectsCarousel({ projects, coverAspectRatio = "3 / 2" 
 
               <div
                 className="project-tag-groups"
-                aria-label="Project skills and application"
+                aria-label={carouselLabels.tagGroups}
               >
                 <div className="tag-group">
-                  <span className="tag-group-label" aria-label="Skills">
+                  <span className="tag-group-label" aria-label={carouselLabels.skills}>
                     <svg
                       className="tag-group-icon"
                       viewBox="0 0 24 24"
@@ -244,7 +263,7 @@ export default function ProjectsCarousel({ projects, coverAspectRatio = "3 / 2" 
                 </div>
 
                 <div className="tag-group">
-                  <span className="tag-group-label" aria-label="Application">
+                  <span className="tag-group-label" aria-label={carouselLabels.application}>
                     <svg
                       className="tag-group-icon"
                       viewBox="0 0 24 24"

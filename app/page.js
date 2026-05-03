@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import ProjectsCarousel from "../components/ProjectsCarousel";
 import projects from "../projects.json";
 import roam from "../roam.json";
@@ -63,20 +66,259 @@ const toolsWorkflow = [
   "General Databases & ORMs",
 ];
 
+const educationEntries = [
+  {
+    title: {
+      en: "BSc Software Engineering (2021-2025)",
+      de: "BSc Software Engineering (2021-2025)",
+    },
+    institution: {
+      en: "CODE University of Applied Sciences • Berlin, Germany",
+      de: "CODE University of Applied Sciences • Berlin, Deutschland",
+    },
+    thesisLabel: {
+      en: "Thesis:",
+      de: "Abschlussarbeit:",
+    },
+    thesis: {
+      en: "A Comparative Study of JavaScript-based SSGs for Jamstack: Analysing Rendering and Hydration Strategies for a More Sustainable Web.",
+      de: "A Comparative Study of JavaScript-based SSGs for Jamstack: Analysing Rendering and Hydration Strategies for a More Sustainable Web.",
+    },
+    modules: codeModules,
+  },
+  {
+    title: {
+      en: "BA Digital Design (2018-2020)",
+      de: "BA Digital Design (2018-2020)",
+    },
+    institution: {
+      en: "IIE Vega • Pretoria, South Africa",
+      de: "IIE Vega • Pretoria, Südafrika",
+    },
+    modules: designModules,
+  },
+];
+
+const experienceEntries = [
+  {
+    date: "2025-Present",
+    title: {
+      en: "Lead Product Designer",
+      de: "Lead Product Designer",
+    },
+    company: {
+      en: "DeBiasMe",
+      de: "DeBiasMe",
+    },
+    description: {
+      en: "DeBiasMe is an early-stage startup aiming to educate around AI usage and promote critical thinking. I own end-to-end design across branding, UX/UI, and web, shaping the product from concept to prototype. In collaboration with the founder, I contribute to defining the product vision and developing user-centered solutions.",
+      de: "DeBiasMe ist ein Startup in der Frühphase, das den bewussten Umgang mit KI fördern und kritisches Denken stärken möchte. Ich verantworte das End-to-End-Design über Branding, UX/UI und Web hinweg und forme das Produkt vom Konzept bis zum Prototyp. In Zusammenarbeit mit dem Gründer trage ich dazu bei, die Produktvision zu definieren und nutzerzentrierte Lösungen zu entwickeln.",
+    },
+  },
+  {
+    date: "2024-Present",
+    title: {
+      en: "Owner/Freelancer",
+      de: "Inhaber/Freelancer",
+    },
+    company: {
+      en: "ROAM Studio",
+      de: "ROAM Studio",
+    },
+    link: "https://www.roamstudio.net",
+    description: {
+      en: "ROAM is a design studio providing identity-focused branding and design services for entrepreneurs and startups. Collaborate with clients to translate brand values into design systems that empower small businesses and freedom-focused ventures.",
+      de: "ROAM ist ein Designstudio, das identitätsorientierte Branding- und Designleistungen für Unternehmer:innen und Startups anbietet. Ich arbeite mit Kund:innen daran, Markenwerte in Designsysteme zu übersetzen, die kleine Unternehmen und freiheitsorientierte Vorhaben stärken.",
+    },
+  },
+  {
+    date: "2023-Present",
+    title: {
+      en: "Freelance Designer",
+      de: "Freiberufliche Designerin",
+    },
+    company: {
+      en: "For A New Earth; FANE",
+      de: "For A New Earth; FANE",
+    },
+    description: {
+      en: "Provided a full rebrand and relaunch on the road to NGO status. Continually provide design and tech support.",
+      de: "Ich habe ein vollständiges Rebranding und den Relaunch auf dem Weg zum NGO-Status begleitet. Außerdem biete ich fortlaufend Design- und Tech-Support an.",
+    },
+  },
+  {
+    date: "2022-2024",
+    title: {
+      en: "UX & UI Designer",
+      de: "UX- und UI-Designer",
+    },
+    company: {
+      en: "Herbert Burda Media (TVSpielfilm, Fokus Online, CHIP ...)",
+      de: "Herbert Burda Media (TVSpielfilm, Fokus Online, CHIP ...)",
+    },
+    link: "/assets/HBM_Zeugnis.pdf",
+    linkLabel: {
+      en: "Testimony",
+      de: "Zeugnis",
+    },
+    description: {
+      en: "Optimized and enhanced digital user experiences across multiple media platforms. Redesigned interfaces and interactive elements to improve usability and engagement. Created and developed design concepts, prototypes, and campaign assets.",
+      de: "Ich habe digitale Nutzererlebnisse über mehrere Medienplattformen hinweg optimiert und weiterentwickelt. Dabei habe ich Interfaces und interaktive Elemente neu gestaltet, um Bedienbarkeit und Engagement zu verbessern. Außerdem habe ich Gestaltungskonzepte, Prototypen und Kampagnenmaterial entwickelt.",
+    },
+  },
+  {
+    date: "2021-2022",
+    title: {
+      en: "Marketing & Event Coordinator",
+      de: "Marketing- und Eventkoordinatorin",
+    },
+    company: {
+      en: "Unicon",
+      de: "Unicon",
+    },
+    description: {
+      en: "Supported the organization and coordination of Unicon, an annual student-led digital innovation and entrepreneurship conference. Created and managed digital marketing materials, branding and social media campaigns to increase event visibility. Collaborated with a cross-functional team to coordinate sponsors, speakers, and participants.",
+      de: "Ich unterstützte die Organisation und Koordination von Unicon, einer jährlichen, von Studierenden organisierten Konferenz für digitale Innovation und Entrepreneurship. Dabei erstellte und betreute ich digitale Marketingmaterialien, Branding und Social-Media-Kampagnen, um die Sichtbarkeit der Veranstaltung zu erhöhen. Außerdem arbeitete ich mit einem interdisziplinären Team zusammen, um Sponsoren, Sprecher:innen und Teilnehmende zu koordinieren.",
+    },
+  },
+  {
+    date: "2021",
+    title: {
+      en: "Intern Software Developer",
+      de: "Praktikantin Softwareentwicklung",
+    },
+    company: {
+      en: "Mernok Electronics (Pty) Ltd",
+      de: "Mernok Electronics (Pty) Ltd",
+    },
+    description: {
+      en: "Designed and developed the front-end of a mobile application available on Playstore (Xamarin, C#). Gained hands-on experience in software engineering practices, mobile app development, and technologies such as NFC.",
+      de: "Ich entwickelte das Frontend einer mobilen Anwendung für den Play Store (Xamarin, C#). Dabei sammelte ich praktische Erfahrung in Software-Engineering, mobiler App-Entwicklung und Technologien wie NFC.",
+    },
+  },
+];
+
+const languageCopy = {
+  en: {
+    nav: {
+      projects: "Projects",
+      clients: "Clients",
+      toggle: "DE",
+      toggleLabel: "Switch to German",
+    },
+    role: "Designer, Software Engineer",
+    summaryTitle: "Overview",
+    summary:
+      "I'm a versatile and adaptive Designer and Software Engineer with a unique blend of design, engineering, and product development competencies. I am experienced in working in cross-functional teams on projects where these disciplines intersect. I thrive in versatile, hands-on roles where I can contribute to creative and technical challenges, and where I can continue to learn and grow. Over the years, I've developed a strong focus on front-end development (native and web), UX, and UI, and am capable of contributing across the full design-development spectrum. I'm particularly passionate about leveraging technology and design for sustainability- and purpose-driven initiatives; where people and planet are at the core.",
+    educationTitle: "Education",
+    modulesLabel: "Modules",
+    skillsTitle: "Skills",
+    softSkillsTitle: "Soft Skills",
+    softSkills:
+      "Flexible and adaptable, with strong empathy and communication skills. I enjoy collaborating and fostering positive relationships with others. Highly organized, quick to learn new tools and methods, and effective under pressure. Brings curiosity, drive, and creativity to every project.",
+    programmingTitle: "Programming Languages, Frameworks & Libraries",
+    toolsTitle: "Tools & Workflow",
+    experienceTitle: "Experience",
+    projectsTitle: "Projects",
+    clientsTitle: "Clients",
+    footerItems: [
+      "More projects and case studies coming soon.",
+      "References available upon request.",
+      "Feel free to reach out for collaborations or opportunities!",
+    ],
+    aria: {
+      nav: "Primary navigation",
+    },
+    carousel: {
+      ariaLabel: "Project carousel",
+      previous: "Previous project",
+      next: "Next project",
+      skills: "Skills",
+      application: "Application",
+      tagGroups: "Project skills and application",
+      defaultContext: "Independent project",
+      defaultDescription: "Project work",
+    },
+    contact: "alsje154@gmail.com • LinkedIn",
+  },
+  de: {
+    nav: {
+      projects: "Projekte",
+      clients: "Kunden",
+      toggle: "EN",
+      toggleLabel: "Switch to English",
+    },
+    role: "Designer, Software Engineer",
+    summaryTitle: "Überblick",
+    summary:
+      "Ich bin eine vielseitige und anpassungsfähige Designerin und Software Engineer mit einer seltenen Kombination aus Design-, Engineering- und Produktentwicklungs-Kompetenzen. Ich habe Erfahrung in der Zusammenarbeit mit interdisziplinären Teams an Projekten, in denen diese Disziplinen zusammenkommen. Ich fühle mich in flexiblen, praxisnahen Rollen wohl, in denen ich kreative und technische Herausforderungen mitgestalten und mich stetig weiterentwickeln kann. Über die Jahre habe ich einen starken Fokus auf Frontend-Entwicklung (nativ und Web), UX und UI aufgebaut und kann über das gesamte Design-Development-Spektrum hinweg beitragen. Besonders wichtig ist mir der Einsatz von Technologie und Design für nachhaltige und sinnorientierte Initiativen, in denen Mensch und Planet im Mittelpunkt stehen.",
+    educationTitle: "Ausbildung",
+    modulesLabel: "Module",
+    skillsTitle: "Fähigkeiten",
+    softSkillsTitle: "Soft Skills",
+    softSkills:
+      "Flexibel und anpassungsfähig, mit starker Empathie und Kommunikationsfähigkeit. Ich arbeite gern mit anderen zusammen und fördere positive Beziehungen. Sehr gut organisiert, schnell im Erlernen neuer Werkzeuge und Methoden und belastbar unter Druck. Ich bringe Neugier, Antrieb und Kreativität in jedes Projekt ein.",
+    programmingTitle: "Programmiersprachen, Frameworks & Libraries",
+    toolsTitle: "Tools & Workflow",
+    experienceTitle: "Berufserfahrung",
+    projectsTitle: "Projekte",
+    clientsTitle: "Kunden",
+    footerItems: [
+      "Weitere Projekte und Case Studies folgen bald.",
+      "Referenzen auf Anfrage verfügbar.",
+      "Melde dich gern für Kooperationen oder Möglichkeiten!",
+    ],
+    aria: {
+      nav: "Hauptnavigation",
+    },
+    carousel: {
+      ariaLabel: "Projektkarussell",
+      previous: "Vorheriges Projekt",
+      next: "Nächstes Projekt",
+      skills: "Fähigkeiten",
+      application: "Anwendung",
+      tagGroups: "Projektfähigkeiten und Anwendung",
+      defaultContext: "Eigenes Projekt",
+      defaultDescription: "Projektarbeit",
+    },
+    contact: "alsje154@gmail.com • LinkedIn",
+  },
+};
+
 export default function Page() {
+  const [language, setLanguage] = useState("en");
+  const copy = languageCopy[language] ?? languageCopy.en;
+
   return (
     <>
-      <nav className="sticky-nav" aria-label="Primary navigation">
+      <nav className="sticky-nav" aria-label={copy.aria.nav}>
         <a className="nav-btn" href="#projects">
-          Projects
+          {copy.nav.projects}
         </a>
+        <a className="nav-btn" href="#clients">
+          {copy.nav.clients}
+        </a>
+        <button
+          className="nav-btn nav-toggle"
+          type="button"
+          data-language={language}
+          onClick={() => setLanguage(language === "en" ? "de" : "en")}
+          aria-label={copy.nav.toggleLabel}
+          aria-pressed={language === "de"}
+        >
+          <span className="nav-toggle-track" aria-hidden="true">
+            <span className="nav-toggle-label nav-toggle-label-left">EN</span>
+            <span className="nav-toggle-label nav-toggle-label-right">DE</span>
+            <span className="nav-toggle-thumb" />
+          </span>
+        </button>
       </nav>
 
       <main className="container">
         <header>
           <div>
             <h1>Alsje Lourens</h1>
-            <p className="role">Designer, Software Engineer</p>
+            <p className="role">{copy.role}</p>
             <div className="meta">
               <ul className="meta-list">
                 <li className="meta-item">
@@ -99,7 +341,9 @@ export default function Page() {
                   >
                     <path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm2 5h12v2H6V9Zm0 4h8v2H6v-2Z" />
                   </svg>
-                  English & Afrikaans (Fluent), Deutsch (B1-2)
+                  {language === "en"
+                    ? "English & Afrikaans (Fluent), Deutsch (B1-2)"
+                    : "Englisch & Afrikaans (fließend), Deutsch (B1-2)"}
                 </li>
                 <li>
                   <a className="meta-item" href="mailto:alsje154@gmail.com">
@@ -161,80 +405,47 @@ export default function Page() {
         </header>
 
         <section id="summary">
-          <h2>Overview</h2>
-          <p>
-            I&apos;m a versatile and adaptive Designer and Software Engineer
-            with a unique blend of design, engineering, and product development
-            competencies. I am experienced in working in cross-functional teams
-            on projects where these disciplines intersect. I thrive in
-            versatile, hands-on roles where I can contribute to creative and
-            technical challenges, and where I can continue to learn and grow.
-            Over the years, I&apos;ve developed a strong focus on front-end
-            development (native and web), UX, and UI, and am capable of
-            contributing across the full design-development spectrum. I&apos;m
-            particularly passionate about leveraging technology and design for
-            sustainability- and purpose-driven initiatives; where people and
-            planet are at the core.
-          </p>
+          <h2>{copy.summaryTitle}</h2>
+          <p>{copy.summary}</p>
         </section>
 
         <section id="education">
-          <h2>Education</h2>
+          <h2>{copy.educationTitle}</h2>
           <ul>
-            <li>
-              <h3>BSc Software Engineering (2021-2025)</h3>
-              <p>CODE University of Applied Sciences • Berlin, Germany</p>
-              <p>
-                Thesis:{" "}
-                <em>
-                  "A Comparative Study of JavaScript-based SSGs for Jamstack:
-                  Analysing Rendering and Hydration Strategies for a More
-                  Sustainable Web."
-                </em>
-              </p>
-              <details>
-                <summary>Modules</summary>
-                <div className="tag-list">
-                  {codeModules.map((module) => (
-                    <span className="tag-chip" key={module}>
-                      {module}
-                    </span>
-                  ))}
-                </div>
-              </details>
-            </li>
-            <li>
-              <h3>BA Digital Design (2018-2020)</h3>
-              <p>IIE Vega • Pretoria, South Africa</p>
-              <details>
-                <summary>Modules</summary>
-                <div className="tag-list">
-                  {designModules.map((module) => (
-                    <span className="tag-chip" key={module}>
-                      {module}
-                    </span>
-                  ))}
-                </div>
-              </details>
-            </li>
+            {educationEntries.map((entry) => (
+              <li key={entry.title.en}>
+                <h3>{entry.title[language]}</h3>
+                <p>{entry.institution[language]}</p>
+                {entry.thesis ? (
+                  <p>
+                    {entry.thesisLabel[language]}{" "}
+                    <em>{entry.thesis[language]}</em>
+                  </p>
+                ) : null}
+                <details>
+                  <summary>{copy.modulesLabel}</summary>
+                  <div className="tag-list">
+                    {entry.modules.map((module) => (
+                      <span className="tag-chip" key={module}>
+                        {module}
+                      </span>
+                    ))}
+                  </div>
+                </details>
+              </li>
+            ))}
           </ul>
         </section>
 
         <section id="skills">
-          <h2>Skills</h2>
+          <h2>{copy.skillsTitle}</h2>
           <ul>
             <li>
-              <h3>Soft Skills</h3>
-              <p>
-                Flexible and adaptable, with strong empathy and communication
-                skills. I enjoy collaborating and fostering positive
-                relationships with others. Highly organized, quick to learn new
-                tools and methods, and effective under pressure. Brings
-                curiosity, drive, and creativity to every project.
-              </p>
+              <h3>{copy.softSkillsTitle}</h3>
+              <p>{copy.softSkills}</p>
             </li>
             <li>
-              <h3>Programming Languages, Frameworks & Libraries</h3>
+              <h3>{copy.programmingTitle}</h3>
               <div className="tag-list">
                 {languageStack.map((item) => (
                   <span className="tag-chip" key={item}>
@@ -244,7 +455,7 @@ export default function Page() {
               </div>
             </li>
             <li>
-              <h3>Tools & Workflow</h3>
+              <h3>{copy.toolsTitle}</h3>
               <div className="tag-list">
                 {toolsWorkflow.map((item) => (
                   <span className="tag-chip" key={item}>
@@ -257,159 +468,66 @@ export default function Page() {
         </section>
 
         <section id="experience">
-          <h2>Experience</h2>
+          <h2>{copy.experienceTitle}</h2>
           <div className="timeline" role="list">
-                        <article className="timeline-item" role="listitem">
-              <div className="timeline-marker">
-                <span className="timeline-date">2025-Present</span>
-              </div>
-              <div className="timeline-card">
-                <h3>Lead Product Designer</h3>
-                <details className="timeline-details">
-                  <summary><h4>DeBiasMe</h4></summary>
-                  <p>
-                    DeBiasMe is an early-stage startup aiming to educate around
-                    AI usage and promote critical thinking. I own end-to-end
-                    design across branding, UX/UI, and web, shaping the product
-                    from concept to prototype. In collaboration with the
-                    founder, I contribute to defining the product vision and
-                    developing user-centered solutions.
-                  </p>
-                </details>
-              </div>
-            </article>
-
-            <article className="timeline-item" role="listitem">
-              <div className="timeline-marker">
-                <span className="timeline-date">2024-Present</span>
-              </div>
-              <div className="timeline-card">
-                <h3>Owner/Freelancer</h3>
-
-                <details className="timeline-details">
-                  <summary><h4>
-                  <a
-                    href="https://www.roamstudio.net"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    ROAM Studio
-                  </a>
-                </h4></summary>
-                  <p>
-                    ROAM is a design studio providing identity-focused branding
-                    and design services for entrepreneurs and startups.
-                    Collaborate with clients to translate brand values into
-                    design systems that empower small businesses and
-                    freedom-focused ventures.
-                  </p>
-                </details>
-              </div>
-            </article>
-
-            <article className="timeline-item" role="listitem">
-              <div className="timeline-marker">
-                <span className="timeline-date">2023-Present</span>
-              </div>
-              <div className="timeline-card">
-                <h3>Freelance Designer</h3>
-                <details className="timeline-details">
-                  <summary><h4>For A New Earth; FANE</h4></summary>
-                  <p>
-                    Provided a full rebrand and relaunch on the road to NGO
-                    status. Continually provide design and tech support.
-                  </p>
-                </details>
-              </div>
-            </article>
-
-                        <article className="timeline-item" role="listitem">
-              <div className="timeline-marker">
-                <span className="timeline-date">2022-2024</span>
-              </div>
-              <div className="timeline-card">
-                <h3>UX & UI Designer</h3>
-                <details className="timeline-details">
-                  <summary><h4>Herbert Burda Media (TVSpielfilm, Fokus Online, CHIP ...)</h4></summary>
-                  <p>
-                    Optimized and enhanced digital user experiences across
-                    multiple media platforms. Redesigned interfaces and
-                    interactive elements to improve usability and engagement.
-                    Created and developed design concepts, prototypes, and
-                    campaign assets.
-                  </p>
-                  <a
-                    className="timeline-link"
-                    href="/assets/HBM_Zeugnis.pdf"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Testimony
-                  </a>
-                </details>
-              </div>
-            </article>
-
-            <article className="timeline-item" role="listitem">
-              <div className="timeline-marker">
-                <span className="timeline-date">2021-2022</span>
-              </div>
-              <div className="timeline-card">
-                <h3>Marketing & Event Coordinator</h3>
-                <details className="timeline-details">
-                  <summary><h4>Unicon</h4></summary>
-                  <p>
-                    Supported the organization and coordination of Unicon, an
-                    annual student-led digital innovation and entrepreneurship
-                    conference. Created and managed digital marketing materials,
-                    branding and social media campaigns to increase event
-                    visibility. Collaborated with a cross-functional team to
-                    coordinate sponsors, speakers, and participants.
-                  </p>
-                </details>
-              </div>
-            </article>
-
-            <article className="timeline-item" role="listitem">
-              <div className="timeline-marker">
-                <span className="timeline-date">2021</span>
-              </div>
-              <div className="timeline-card">
-                <h3>Intern Software Developer</h3>
-                <details className="timeline-details">
-                  <summary><h4>Mernok Electronics (Pty) Ltd</h4></summary>
-                  <p>
-                    Designed and developed the front-end of a mobile
-                    application available on Playstore (Xamarin, C#). Gained
-                    hands-on experience in software engineering practices,
-                    mobile app development, and technologies such as NFC.
-                  </p>
-                </details>
-              </div>
-            </article>
+            {experienceEntries.map((entry) => (
+              <article className="timeline-item" role="listitem" key={`${entry.date}-${entry.title.en}`}>
+                <div className="timeline-marker">
+                  <span className="timeline-date">{entry.date}</span>
+                </div>
+                <div className="timeline-card">
+                  <h3>{entry.title[language]}</h3>
+                  <details className="timeline-details">
+                    <summary>
+                      <h4>
+                        {entry.link ? (
+                          <a href={entry.link} target="_blank" rel="noreferrer">
+                            {entry.company[language]}
+                          </a>
+                        ) : (
+                          entry.company[language]
+                        )}
+                      </h4>
+                    </summary>
+                    <p>{entry.description[language]}</p>
+                    {entry.linkLabel ? (
+                      <a
+                        className="timeline-link"
+                        href={entry.link}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {entry.linkLabel[language]}
+                      </a>
+                    ) : null}
+                  </details>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
-        <div id="projects">
-          <h1>Projects</h1>
-          <ProjectsCarousel projects={projects} />
+        <div id="projects" className="portfolio">
+          <h1>{copy.projectsTitle}</h1>
+          <ProjectsCarousel projects={projects} labels={copy.carousel} language={language} />
         </div>
 
-        <div id="projects">
-          <h1>Clients</h1>
-          <ProjectsCarousel projects={roam} coverAspectRatio="1500 / 700" />
+        <div id="clients" className="portfolio">
+          <h1>{copy.clientsTitle}</h1>
+          <ProjectsCarousel
+            projects={roam}
+            labels={copy.carousel}
+            language={language}
+            coverAspectRatio="1500 / 700"
+          />
         </div>
 
         <footer>
           <div>
             <ul>
-              <li>
-                More projects and case studies coming soon.
-              </li>
-              <li>References available upon request.</li>
-              <li>
-                Feel free to reach out for collaborations or opportunities!
-              </li>
+              {copy.footerItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </div>
 
