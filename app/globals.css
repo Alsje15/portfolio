@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Sora:wght@500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Krona+One&family=Manrope:wght@400;500;700;800&family=Sora:wght@500;700;800&display=swap");
 
 :root {
   --max-w: 1100px;
@@ -71,6 +71,7 @@ a {
   align-items: center;
   justify-content: center;
   padding: 0.55rem 1rem;
+  margin: 0rem 0.5rem;
   border-radius: 999px;
   border: 1px solid rgba(75, 143, 242, 0.35);
   background: color-mix(in oklab, var(--panel) 76%, white 24%);
@@ -109,7 +110,7 @@ footer {
   border: 1px solid rgba(130, 150, 175, 0.14);
 }
 
-#projects {
+.portfolio {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
@@ -118,7 +119,7 @@ footer {
   scroll-margin-top: 4.5rem;
 }
 
-#projects h1 {
+.portfolio h1 {
     border-top: 2px solid rgba(255, 255, 255, 0.14);
     text-align: center;
     margin: 2rem 2rem 1rem 2rem;
@@ -127,26 +128,27 @@ footer {
 
 header,
 #summary,
-#projects,
+.portfolio,
 footer {
   grid-column: 1 / -1;
 }
 
-section:not(#projects) ul {
+section:not(.portfolio) ul {
   margin: 0;
   padding-left: 0;
   list-style: none;
 }
 
-section:not(#projects) li {
-  margin: 0;
+section:not(.portfolio) li {
+  
+  margin-top: 1.18rem;
   padding: 0.65rem 0;
   border-bottom: 1px solid rgba(130, 150, 175, 0.18);
   color: #1a2232;
   line-height: 1.45;
 }
 
-section:not(#projects) li:last-child {
+section:not(.portfolio) li:last-child {
   border-bottom: 0;
 }
 
@@ -189,13 +191,20 @@ header {
 
 h1 {
   margin: 0 0 0.25rem;
-  font-family: "Sora", "Manrope", sans-serif;
+  font-family: "Krona One", sans-serif;
   font-size: clamp(2.1rem, 4vw, 3rem);
   line-height: 1;
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--accent);
+}
+
+h2,
+h3,
+h5,
+h6 {
+  font-family: "Krona One", sans-serif;
 }
 
 .role {
@@ -241,12 +250,16 @@ h1 {
 
 h2 {
   margin: 0 0 0.8rem;
-  font-family: "Sora", "Manrope", sans-serif;
   font-size: 1.35rem;
   font-weight: 700;
   letter-spacing: 0.01em;
   color: var(--accent);
 }
+
+#experience h2 {
+  margin-bottom: 1rem;
+}
+
 
 h3,
 h4 {
@@ -393,18 +406,19 @@ details[open] > summary::after {
 }
 
 #experience .timeline-card h3 {
-  margin-bottom: 0.15rem;
+  margin-bottom: 1.15rem;
 }
 
 #experience .timeline-card h4 {
   margin-bottom: 0.55rem;
+  margin-top: 0.55rem;
   color: #2f3f59;
   font-weight: 700;
   font-size: 0.95rem;
 }
 
 #experience .timeline-details {
-  margin: 0;
+  margin-bottom: 1rem;
 }
 
 #experience .timeline-details summary {
@@ -570,7 +584,7 @@ footer ul {
 .tag-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem;
+  gap: 0.5rem;
 }
 
 .tag-chip {

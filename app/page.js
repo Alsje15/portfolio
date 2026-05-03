@@ -70,6 +70,9 @@ export default function Page() {
         <a className="nav-btn" href="#projects">
           Projects
         </a>
+        <a className="nav-btn" href="#clients">
+          Clients
+        </a>
       </nav>
 
       <main className="container">
@@ -390,12 +393,12 @@ export default function Page() {
           </div>
         </section>
 
-        <div id="projects">
+        <div id="projects" className="portfolio">
           <h1>Projects</h1>
           <ProjectsCarousel projects={projects} />
         </div>
 
-        <div id="projects">
+        <div id="clients" className="portfolio">
           <h1>Clients</h1>
           <ProjectsCarousel projects={roam} coverAspectRatio="1500 / 700" />
         </div>
