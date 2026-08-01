@@ -1,21 +1,5 @@
 [
   {
-    "title": "DeBiasMe",
-     "details": false,
-    "color": "#5d7a9c",
-    "status": "Pilot phase, Pre-launch",
-    "date": "2026",
-    "description": "DeBiasMe reveals human, computational, statistical and systemic through interactive tools and workshops that map how different types of bias influence your learning process. By recognizing and mitigating these biases, we can use AI more effectively while maintaining critical thinking skills that education aims to develop.",
-    "descriptionDe": "DeBiasMe macht menschliche, rechnerische, statistische und systemische Verzerrungen durch interaktive Werkzeuge und Workshops sichtbar, die aufzeigen, wie verschiedene Arten von Bias deinen Lernprozess beeinflussen. Indem wir diese Verzerrungen erkennen und reduzieren, können wir KI effektiver nutzen und gleichzeitig die kritischen Denkfähigkeiten bewahren, die Bildung fördern soll.",
-    "cover": "/assets/debiasme.png",
-    "link": "https://cheerful-panda-695958.framer.app/",
-    "context": "Passion Project, Volunteer",
-    "skills": ["web", "research", "product design", "branding", "development"],
-    "application": [
-      "coming soon"
-    ]
-  },
-  {
     "title": "Lorel",
     "details": false,
     "color": "#943e2f",

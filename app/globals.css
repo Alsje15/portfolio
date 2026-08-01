@@ -41,6 +41,52 @@ a {
   text-underline-offset: 2px;
 }
 
+.maintenance-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.maintenance-card {
+  max-width: 480px;
+  text-align: center;
+  background: var(--panel-strong);
+  border: 1px solid var(--tag-border);
+  border-radius: var(--radius);
+  padding: 2.5rem 2rem;
+  box-shadow: 0 12px 30px rgba(18, 23, 33, 0.08);
+}
+
+.maintenance-eyebrow {
+  margin: 0 0 0.5rem;
+  font-family: "Sora", "Manrope", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.maintenance-card h1 {
+  margin: 0 0 0.75rem;
+  font-family: "Sora", "Manrope", sans-serif;
+  font-size: 2rem;
+}
+
+.maintenance-card p {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.maintenance-contact {
+  display: inline-block;
+  font-weight: 700;
+  color: var(--accent);
+}
+
 .container {
   max-width: var(--max-w);
   margin: 1rem auto 2.2rem;

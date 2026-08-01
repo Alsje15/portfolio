@@ -66,228 +66,30 @@ const toolsWorkflow = [
   "General Databases & ORMs",
 ];
 
-const educationEntries = [
-  {
-    title: {
-      en: "BSc Software Engineering (2021-2025)",
-      de: "BSc Software Engineering (2021-2025)",
-    },
-    institution: {
-      en: "CODE University of Applied Sciences • Berlin, Germany",
-      de: "CODE University of Applied Sciences • Berlin, Deutschland",
-    },
-    thesisLabel: {
-      en: "Thesis:",
-      de: "Abschlussarbeit:",
-    },
-    thesis: {
-      en: "A Comparative Study of JavaScript-based SSGs for Jamstack: Analysing Rendering and Hydration Strategies for a More Sustainable Web.",
-      de: "A Comparative Study of JavaScript-based SSGs for Jamstack: Analysing Rendering and Hydration Strategies for a More Sustainable Web.",
-    },
-    modules: codeModules,
-  },
-  {
-    title: {
-      en: "BA Digital Design (2018-2020)",
-      de: "BA Digital Design (2018-2020)",
-    },
-    institution: {
-      en: "IIE Vega • Pretoria, South Africa",
-      de: "IIE Vega • Pretoria, Südafrika",
-    },
-    modules: designModules,
-  },
-];
+const SITE_UNDER_CONSTRUCTION = true;
 
-const experienceEntries = [
-  {
-    date: "2025-Present",
-    title: {
-      en: "Lead Product Designer",
-      de: "Lead Product Designer",
-    },
-    company: {
-      en: "DeBiasMe",
-      de: "DeBiasMe",
-    },
-    description: {
-      en: "DeBiasMe is an early-stage startup aiming to educate around AI usage and promote critical thinking. I own end-to-end design across branding, UX/UI, and web, shaping the product from concept to prototype. In collaboration with the founder, I contribute to defining the product vision and developing user-centered solutions.",
-      de: "DeBiasMe ist ein Startup in der Frühphase, das den bewussten Umgang mit KI fördern und kritisches Denken stärken möchte. Ich verantworte das End-to-End-Design über Branding, UX/UI und Web hinweg und forme das Produkt vom Konzept bis zum Prototyp. In Zusammenarbeit mit dem Gründer trage ich dazu bei, die Produktvision zu definieren und nutzerzentrierte Lösungen zu entwickeln.",
-    },
-  },
-  {
-    date: "2024-Present",
-    title: {
-      en: "Owner/Freelancer",
-      de: "Inhaber/Freelancer",
-    },
-    company: {
-      en: "ROAM Studio",
-      de: "ROAM Studio",
-    },
-    link: "https://www.roamstudio.net",
-    description: {
-      en: "ROAM is a design studio providing identity-focused branding and design services for entrepreneurs and startups. Collaborate with clients to translate brand values into design systems that empower small businesses and freedom-focused ventures.",
-      de: "ROAM ist ein Designstudio, das identitätsorientierte Branding- und Designleistungen für Unternehmer:innen und Startups anbietet. Ich arbeite mit Kund:innen daran, Markenwerte in Designsysteme zu übersetzen, die kleine Unternehmen und freiheitsorientierte Vorhaben stärken.",
-    },
-  },
-  {
-    date: "2023-Present",
-    title: {
-      en: "Freelance Designer",
-      de: "Freiberufliche Designerin",
-    },
-    company: {
-      en: "For A New Earth; FANE",
-      de: "For A New Earth; FANE",
-    },
-    description: {
-      en: "Provided a full rebrand and relaunch on the road to NGO status. Continually provide design and tech support.",
-      de: "Ich habe ein vollständiges Rebranding und den Relaunch auf dem Weg zum NGO-Status begleitet. Außerdem biete ich fortlaufend Design- und Tech-Support an.",
-    },
-  },
-  {
-    date: "2022-2024",
-    title: {
-      en: "UX & UI Designer",
-      de: "UX- und UI-Designer",
-    },
-    company: {
-      en: "Herbert Burda Media (TVSpielfilm, Fokus Online, CHIP ...)",
-      de: "Herbert Burda Media (TVSpielfilm, Fokus Online, CHIP ...)",
-    },
-    link: "/assets/HBM_Zeugnis.pdf",
-    linkLabel: {
-      en: "Testimony",
-      de: "Zeugnis",
-    },
-    description: {
-      en: "Optimized and enhanced digital user experiences across multiple media platforms. Redesigned interfaces and interactive elements to improve usability and engagement. Created and developed design concepts, prototypes, and campaign assets.",
-      de: "Ich habe digitale Nutzererlebnisse über mehrere Medienplattformen hinweg optimiert und weiterentwickelt. Dabei habe ich Interfaces und interaktive Elemente neu gestaltet, um Bedienbarkeit und Engagement zu verbessern. Außerdem habe ich Gestaltungskonzepte, Prototypen und Kampagnenmaterial entwickelt.",
-    },
-  },
-  {
-    date: "2021-2022",
-    title: {
-      en: "Marketing & Event Coordinator",
-      de: "Marketing- und Eventkoordinatorin",
-    },
-    company: {
-      en: "Unicon",
-      de: "Unicon",
-    },
-    description: {
-      en: "Supported the organization and coordination of Unicon, an annual student-led digital innovation and entrepreneurship conference. Created and managed digital marketing materials, branding and social media campaigns to increase event visibility. Collaborated with a cross-functional team to coordinate sponsors, speakers, and participants.",
-      de: "Ich unterstützte die Organisation und Koordination von Unicon, einer jährlichen, von Studierenden organisierten Konferenz für digitale Innovation und Entrepreneurship. Dabei erstellte und betreute ich digitale Marketingmaterialien, Branding und Social-Media-Kampagnen, um die Sichtbarkeit der Veranstaltung zu erhöhen. Außerdem arbeitete ich mit einem interdisziplinären Team zusammen, um Sponsoren, Sprecher:innen und Teilnehmende zu koordinieren.",
-    },
-  },
-  {
-    date: "2021",
-    title: {
-      en: "Intern Software Developer",
-      de: "Praktikantin Softwareentwicklung",
-    },
-    company: {
-      en: "Mernok Electronics (Pty) Ltd",
-      de: "Mernok Electronics (Pty) Ltd",
-    },
-    description: {
-      en: "Designed and developed the front-end of a mobile application available on Playstore (Xamarin, C#). Gained hands-on experience in software engineering practices, mobile app development, and technologies such as NFC.",
-      de: "Ich entwickelte das Frontend einer mobilen Anwendung für den Play Store (Xamarin, C#). Dabei sammelte ich praktische Erfahrung in Software-Engineering, mobiler App-Entwicklung und Technologien wie NFC.",
-    },
-  },
-];
-
-const languageCopy = {
-  en: {
-    nav: {
-      projects: "Projects",
-      clients: "Clients",
-      toggle: "DE",
-      toggleLabel: "Switch to German",
-    },
-    role: "Designer, Software Engineer",
-    summaryTitle: "Overview",
-    summary:
-      "I'm a versatile and adaptive Designer and Software Engineer with a unique blend of design, engineering, and product development competencies. I am experienced in working in cross-functional teams on projects where these disciplines intersect. I thrive in versatile, hands-on roles where I can contribute to creative and technical challenges, and where I can continue to learn and grow. Over the years, I've developed a strong focus on front-end development (native and web), UX, and UI, and am capable of contributing across the full design-development spectrum. I'm particularly passionate about leveraging technology and design for sustainability- and purpose-driven initiatives; where people and planet are at the core.",
-    educationTitle: "Education",
-    modulesLabel: "Modules",
-    skillsTitle: "Skills",
-    softSkillsTitle: "Soft Skills",
-    softSkills:
-      "Flexible and adaptable, with strong empathy and communication skills. I enjoy collaborating and fostering positive relationships with others. Highly organized, quick to learn new tools and methods, and effective under pressure. Brings curiosity, drive, and creativity to every project.",
-    programmingTitle: "Programming Languages, Frameworks & Libraries",
-    toolsTitle: "Tools & Workflow",
-    experienceTitle: "Experience",
-    projectsTitle: "Projects",
-    clientsTitle: "Clients",
-    footerItems: [
-      "More projects and case studies coming soon.",
-      "References available upon request.",
-      "Feel free to reach out for collaborations or opportunities!",
-    ],
-    aria: {
-      nav: "Primary navigation",
-    },
-    carousel: {
-      ariaLabel: "Project carousel",
-      previous: "Previous project",
-      next: "Next project",
-      skills: "Skills",
-      application: "Application",
-      tagGroups: "Project skills and application",
-      defaultContext: "Independent project",
-      defaultDescription: "Project work",
-    },
-    contact: "alsje154@gmail.com • LinkedIn",
-  },
-  de: {
-    nav: {
-      projects: "Projekte",
-      clients: "Kunden",
-      toggle: "EN",
-      toggleLabel: "Switch to English",
-    },
-    role: "Designer, Software Engineer",
-    summaryTitle: "Überblick",
-    summary:
-      "Ich bin eine vielseitige und anpassungsfähige Designerin und Software Engineer mit einer seltenen Kombination aus Design-, Engineering- und Produktentwicklungs-Kompetenzen. Ich habe Erfahrung in der Zusammenarbeit mit interdisziplinären Teams an Projekten, in denen diese Disziplinen zusammenkommen. Ich fühle mich in flexiblen, praxisnahen Rollen wohl, in denen ich kreative und technische Herausforderungen mitgestalten und mich stetig weiterentwickeln kann. Über die Jahre habe ich einen starken Fokus auf Frontend-Entwicklung (nativ und Web), UX und UI aufgebaut und kann über das gesamte Design-Development-Spektrum hinweg beitragen. Besonders wichtig ist mir der Einsatz von Technologie und Design für nachhaltige und sinnorientierte Initiativen, in denen Mensch und Planet im Mittelpunkt stehen.",
-    educationTitle: "Ausbildung",
-    modulesLabel: "Module",
-    skillsTitle: "Fähigkeiten",
-    softSkillsTitle: "Soft Skills",
-    softSkills:
-      "Flexibel und anpassungsfähig, mit starker Empathie und Kommunikationsfähigkeit. Ich arbeite gern mit anderen zusammen und fördere positive Beziehungen. Sehr gut organisiert, schnell im Erlernen neuer Werkzeuge und Methoden und belastbar unter Druck. Ich bringe Neugier, Antrieb und Kreativität in jedes Projekt ein.",
-    programmingTitle: "Programmiersprachen, Frameworks & Libraries",
-    toolsTitle: "Tools & Workflow",
-    experienceTitle: "Berufserfahrung",
-    projectsTitle: "Projekte",
-    clientsTitle: "Kunden",
-    footerItems: [
-      "Weitere Projekte und Case Studies folgen bald.",
-      "Referenzen auf Anfrage verfügbar.",
-      "Melde dich gern für Kooperationen oder Möglichkeiten!",
-    ],
-    aria: {
-      nav: "Hauptnavigation",
-    },
-    carousel: {
-      ariaLabel: "Projektkarussell",
-      previous: "Vorheriges Projekt",
-      next: "Nächstes Projekt",
-      skills: "Fähigkeiten",
-      application: "Anwendung",
-      tagGroups: "Projektfähigkeiten und Anwendung",
-      defaultContext: "Eigenes Projekt",
-      defaultDescription: "Projektarbeit",
-    },
-    contact: "alsje154@gmail.com • LinkedIn",
-  },
-};
+function UnderConstruction() {
+  return (
+    <main className="maintenance-screen">
+      <div className="maintenance-card">
+        <p className="maintenance-eyebrow">Alsje Lourens</p>
+        <h1>Under construction</h1>
+        <p>
+          This portfolio is currently being reworked. Come back soon to see
+          what&apos;s new.
+        </p>
+        <a className="maintenance-contact" href="mailto:alsje154@gmail.com">
+          alsje154@gmail.com
+        </a>
+      </div>
+    </main>
+  );
+}
 
 export default function Page() {
-  const [language, setLanguage] = useState("en");
-  const copy = languageCopy[language] ?? languageCopy.en;
+  if (SITE_UNDER_CONSTRUCTION) {
+    return <UnderConstruction />;
+  }
 
   return (
     <>
@@ -470,40 +272,136 @@ export default function Page() {
         <section id="experience">
           <h2>{copy.experienceTitle}</h2>
           <div className="timeline" role="list">
-            {experienceEntries.map((entry) => (
-              <article className="timeline-item" role="listitem" key={`${entry.date}-${entry.title.en}`}>
-                <div className="timeline-marker">
-                  <span className="timeline-date">{entry.date}</span>
-                </div>
-                <div className="timeline-card">
-                  <h3>{entry.title[language]}</h3>
-                  <details className="timeline-details">
-                    <summary>
-                      <h4>
-                        {entry.link ? (
-                          <a href={entry.link} target="_blank" rel="noreferrer">
-                            {entry.company[language]}
-                          </a>
-                        ) : (
-                          entry.company[language]
-                        )}
-                      </h4>
-                    </summary>
-                    <p>{entry.description[language]}</p>
-                    {entry.linkLabel ? (
-                      <a
-                        className="timeline-link"
-                        href={entry.link}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {entry.linkLabel[language]}
-                      </a>
-                    ) : null}
-                  </details>
-                </div>
-              </article>
-            ))}
+
+            {/* chill */}
+                        {/* <article className="timeline-item" role="listitem">
+              <div className="timeline-marker">
+                <span className="timeline-date">2025-Present</span>
+              </div>
+              <div className="timeline-card">
+                <h3>Lead Designer</h3>
+                <details className="timeline-details">
+                  <summary><h4>DeBiasMe</h4></summary>
+                  <p>
+                    DeBiasMe is an early-stage startup aiming to educate around
+                    AI usage and promote critical thinking. I own end-to-end
+                    design across branding, UX/UI, and web, shaping the product
+                    from concept to prototype. In collaboration with the
+                    founder, I contribute to defining the product vision and
+                    developing user-centered solutions.
+                  </p>
+                </details>
+              </div>
+            </article> */}
+
+            <article className="timeline-item" role="listitem">
+              <div className="timeline-marker">
+                <span className="timeline-date">2024-Present</span>
+              </div>
+              <div className="timeline-card">
+                <h3>Owner/Freelancer</h3>
+
+                <details className="timeline-details">
+                  <summary><h4>
+                  <a
+                    href="https://www.roamstudio.net"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ROAM Studio
+                  </a>
+                </h4></summary>
+                  <p>
+                    ROAM is a design studio providing identity-focused branding
+                    and design services for entrepreneurs and startups.
+                    Collaborate with clients to translate brand values into
+                    design systems that empower small businesses and
+                    freedom-focused ventures.
+                  </p>
+                </details>
+              </div>
+            </article>
+
+            <article className="timeline-item" role="listitem">
+              <div className="timeline-marker">
+                <span className="timeline-date">2023-Present</span>
+              </div>
+              <div className="timeline-card">
+                <h3>Freelance Designer</h3>
+                <details className="timeline-details">
+                  <summary><h4>For A New Earth; FANE</h4></summary>
+                  <p>
+                    Provided a full rebrand and relaunch on the road to NGO
+                    status. Continually provide design and tech support.
+                  </p>
+                </details>
+              </div>
+            </article>
+
+                        <article className="timeline-item" role="listitem">
+              <div className="timeline-marker">
+                <span className="timeline-date">2022-2024</span>
+              </div>
+              <div className="timeline-card">
+                <h3>UX & UI Designer</h3>
+                <details className="timeline-details">
+                  <summary><h4>Herbert Burda Media (TVSpielfilm, Fokus Online, CHIP ...)</h4></summary>
+                  <p>
+                    Optimized and enhanced digital user experiences across
+                    multiple media platforms. Redesigned interfaces and
+                    interactive elements to improve usability and engagement.
+                    Created and developed design concepts, prototypes, and
+                    campaign assets.
+                  </p>
+                  <a
+                    className="timeline-link"
+                    href="/assets/HBM_Zeugnis.pdf"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Testimony
+                  </a>
+                </details>
+              </div>
+            </article>
+
+            <article className="timeline-item" role="listitem">
+              <div className="timeline-marker">
+                <span className="timeline-date">2021-2022</span>
+              </div>
+              <div className="timeline-card">
+                <h3>Marketing & Event Coordinator</h3>
+                <details className="timeline-details">
+                  <summary><h4>Unicon</h4></summary>
+                  <p>
+                    Supported the organization and coordination of Unicon, an
+                    annual student-led digital innovation and entrepreneurship
+                    conference. Created and managed digital marketing materials,
+                    branding and social media campaigns to increase event
+                    visibility. Collaborated with a cross-functional team to
+                    coordinate sponsors, speakers, and participants.
+                  </p>
+                </details>
+              </div>
+            </article>
+
+            <article className="timeline-item" role="listitem">
+              <div className="timeline-marker">
+                <span className="timeline-date">2021</span>
+              </div>
+              <div className="timeline-card">
+                <h3>Intern Software Developer</h3>
+                <details className="timeline-details">
+                  <summary><h4>Mernok Electronics (Pty) Ltd</h4></summary>
+                  <p>
+                    Designed and developed the front-end of a mobile
+                    application available on Playstore (Xamarin, C#). Gained
+                    hands-on experience in software engineering practices,
+                    mobile app development, and technologies such as NFC.
+                  </p>
+                </details>
+              </div>
+            </article>
           </div>
         </section>
 
